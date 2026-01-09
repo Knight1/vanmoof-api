@@ -22,14 +22,20 @@ jobs:
         with:
           php-version: '8.3'
 
-      - name: Install Scribe
-        run: composer require knuckleswtf/scribe --dev
+      - name: Scaffold Laravel and Install Scribe
+        run: |
+          composer create-project laravel/laravel temp_app --prefer-dist --quiet
+          cd temp_app
+          composer require knuckleswtf/scribe --dev
+          cp -r ../.scribe .scribe
 
       - name: Generate HTML
-        run: php artisan scribe:generate --no-extraction
+        run: |
+          cd temp_app
+          php artisan scribe:generate --no-extraction
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public/docs
+          publish_dir: ./temp_app/public/docs
