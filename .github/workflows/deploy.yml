@@ -5,6 +5,11 @@ on:
     branches: [ main ]
     paths:
       - '.scribe/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.scribe/**'
+  workflow_dispatch:
 
 jobs:
   build:
