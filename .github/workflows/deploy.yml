@@ -12,7 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      # Scribe needs PHP or Node to run the generator
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
