@@ -1,0 +1,17 @@
+name: Login
+description: Login
+endpoints:
+  - httpMethods: [ "GET" ]
+    uri: api/v8/authenticate
+    metadata:
+      title: Login
+      description: Returns a token.
+      authenticated: true
+    parameters:
+      limit:
+        description: Login.
+        required: true
+        example: 10
+    responses:
+      - status: 200
+        content: '{"token": "token"}'
