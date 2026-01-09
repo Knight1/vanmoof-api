@@ -19,6 +19,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v6
 
@@ -32,6 +34,10 @@ jobs:
           composer create-project laravel/laravel temp_app --prefer-dist --quiet
           cd temp_app
           composer require knuckleswtf/scribe --dev
+          # Publish config so we can modify it
+          php artisan vendor:publish --tag=scribe-config
+          # Change doc type from 'laravel' (dynamic) to 'static' (html)
+          sed -i "s/'type' => 'laravel',/'type' => 'static',/g" config/scribe.php
           cp -r ../.scribe .scribe
 
       - name: Generate HTML
