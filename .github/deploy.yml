@@ -1,0 +1,31 @@
+name: Build Scribe Docs
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.scribe/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      # Scribe needs PHP or Node to run the generator
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Scribe
+        run: composer require knuckleswtf/scribe --dev
+
+      - name: Generate HTML
+        run: php artisan scribe:generate --no-extraction
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public/docs
