@@ -5,10 +5,12 @@ on:
     branches: [ main ]
     paths:
       - '.scribe/**'
+      - 'scribe.php'
   pull_request:
     branches: [ main ]
     paths:
       - '.scribe/**'
+      - 'scribe.php'
   workflow_dispatch:
 
 permissions:
