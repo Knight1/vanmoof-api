@@ -39,31 +39,27 @@ jobs:
           composer require knuckleswtf/scribe --dev
           # Publish config so we can modify it
           php artisan vendor:publish --tag=scribe-config
-          # Change doc type from 'laravel' (dynamic) to 'static' (html)
-          # Use loose regex to handle potential whitespace
-          sed -i "s/'type'.*=>.*'laravel'/'type' => 'static'/g" config/scribe.php
+          # Copy custom config
+          cp ../scribe.php config/scribe.php
           cp -r ../.scribe .scribe
 
       - name: Generate HTML
         run: |
           cd temp_app
           php artisan scribe:generate --no-extraction --verbose
-          # Fix 1: Resolve "../docs/" paths which fail at the root of GitHub Pages
+          # Fix: Resolve "../docs/" paths which fail at the root of GitHub Pages
           sed -i 's|\.\./docs/|\./|g' public/docs/index.html
-          # Fix 2: Remove localhost reference in asset paths
+          # Fix: Remove localhost reference in asset paths
           sed -i 's|http://localhost/docs/|./|g' public/docs/index.html
-          # Fix 3: Convert absolute /docs/ paths to relative ./
+          # Fix: Convert absolute /docs/ paths to relative ./
           sed -i 's|"/docs/|"\./|g' public/docs/index.html
           sed -i "s|'/docs/|'\./|g" public/docs/index.html
-          # Fix 4: Set a valid API Base URL (replacing localhost)
-          sed -i 's|http://localhost|https://api.vanmoof-api.com|g' public/docs/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './temp_app/public/docs'
 
-      # Deployment job
   deploy:
     environment:
       name: github-pages
