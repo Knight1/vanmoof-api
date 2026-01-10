@@ -1,0 +1,24 @@
+name: Customer
+description: Endpoints for customer data
+endpoints:
+  - httpMethods: [ "GET" ]
+    uri: v8/getCustomerData
+    metadata:
+      title: Get Customer Data
+      description: Retrieve the authenticated customer's data and associated bikes.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    queryParameters:
+      includeBikeDetails:
+        name: includeBikeDetails
+        description: Include details about the customer's bikes.
+        type: boolean
+        required: true
+        example: true
+    responses:
+      - status: 200
+        description: Success
+        content: |
+          "Hi!"
