@@ -51,11 +51,6 @@ jobs:
           php artisan scribe:generate --no-extraction --verbose
           # Fix: Resolve "../docs/" paths which fail at the root of GitHub Pages
           sed -i 's|\.\./docs/|\./|g' public/docs/index.html
-          # Fix: Remove localhost reference in asset paths
-          # sed -i 's|http://localhost/docs/|./|g' public/docs/index.html
-          # Fix: Convert absolute /docs/ paths to relative ./
-          # sed -i 's|"/docs/|"\./|g' public/docs/index.html
-          # sed -i "s|'/docs/|'\./|g" public/docs/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
