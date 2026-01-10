@@ -45,6 +45,7 @@ endpoints:
           '{"error": "UnexpectedError","message": "An unexpected error occurred. Please contact support if this problem persists."}'
       - status: 401
         description: Unauthorized
+        content:
           '{"error": "AuthenticationException","message": "Invalid Credentials"}'
       - status: 422
         description: Unprocessable Entity
