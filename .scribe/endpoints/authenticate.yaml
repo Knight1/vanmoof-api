@@ -15,12 +15,15 @@ endpoints:
       - status: 200
         description: Success
         content:
-          application/json:
-            token: "initial_auth_token"
+          '{"token":"{TOKEN}","refreshToken":"UUIDv4"}'
       - status: 401
         description: Unauthorized
         content:
           '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content:
+          '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
 
   - httpMethods: [ "GET" ]
     uri: v8/getApplicationToken
@@ -35,5 +38,15 @@ endpoints:
       - status: 200
         description: Success
         content:
-          application/json:
-            token: "jwt_application_token"
+          '{"token": "{JWT_TOKEN}"}'
+      - status: 401
+        description: Unauthorized
+        content:
+          '{"error": "UnexpectedError","message": "An unexpected error occurred. Please contact support if this problem persists."}'
+      - status: 401
+        description: Unauthorized
+          '{"error": "AuthenticationException","message": "Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content:
+          '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
