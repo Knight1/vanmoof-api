@@ -5,7 +5,7 @@ endpoints:
     uri: v8/authenticate
     metadata:
       title: 1. Obtain Initial Token
-      description: Authenticate with email and password to get an initial token.
+      description: Authenticate with email and password to get an initial token. This token is then exchanged for an Application JWT which expires fairly quickly. This token is valid for one year to continusly optain new Application JWTs without re-authenticating.
       authenticated: false
     headers:
       Authorization: Basic dXNlckBleGFtcGxlLmNvbTpwYXNzd29yZA==
@@ -17,6 +17,10 @@ endpoints:
         content:
           application/json:
             token: "initial_auth_token"
+      - status: 401
+        description: Unauthorized
+        content:
+          '{"error":"AuthenticationException","message":"Invalid Credentials"}'
 
   - httpMethods: [ "GET" ]
     uri: v8/getApplicationToken
