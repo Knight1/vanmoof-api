@@ -56,7 +56,7 @@ jobs:
           sed -i "s|'/docs/|'\./|g" public/docs/index.html
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: './temp_app/public/docs'
 
