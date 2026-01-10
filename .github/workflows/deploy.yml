@@ -30,7 +30,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.5'
 
       - name: Scaffold Laravel and Install Scribe
         run: |
@@ -57,8 +57,7 @@ jobs:
           sed -i "s|'/docs/|'\./|g" public/docs/index.html
           # Fix 4: Set a valid API Base URL (replacing localhost)
           sed -i 's|http://localhost|https://my.vanmoof.com|g' public/docs/index.html
-          ls -la public/docs || echo "Docs directory not found"
-          
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
