@@ -7,7 +7,8 @@ To authenticate with the API, you must provide your VanMoof credentials to obtai
 All API requests require the following headers:
 
 - `Api-Key`: `fcb38d47-f14b-30cf-843b-26283f6a5819`
-- `User-Agent`: `VanMoof/20 CFNetwork/1404.0.5 Darwin/22.3.0`
+
+This is ```"api_key": 3```
 
 ## 1. Obtain Initial Token
 
