@@ -37,13 +37,15 @@ jobs:
           # Publish config so we can modify it
           php artisan vendor:publish --tag=scribe-config
           # Change doc type from 'laravel' (dynamic) to 'static' (html)
-          sed -i "s/'type' => 'laravel',/'type' => 'static',/g" config/scribe.php
+          # Use loose regex to handle potential whitespace
+          sed -i "s/'type'.*=>.*'laravel'/'type' => 'static'/g" config/scribe.php
           cp -r ../.scribe .scribe
 
       - name: Generate HTML
         run: |
           cd temp_app
-          php artisan scribe:generate --no-extraction
+          php artisan scribe:generate --no-extraction --verbose
+          ls -la public/docs || echo "Docs directory not found"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
