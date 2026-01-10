@@ -5,7 +5,22 @@ endpoints:
     uri: v8/authenticate
     metadata:
       title: 1. Obtain Initial Token
-      description: Authenticate with email and password to get an initial token. This token is then exchanged for an Application JWT which expires within two hours. This token however is valid for one year to continusly optain new Application JWTs without re-authenticating.
+      description: |
+        Authenticate with email and password to get an initial token. This token is then exchanged for an Application JWT which expires within two hours. This token however is valid for one year to continusly optain new Application JWTs without re-authenticating.
+
+        JWT Payload:
+        ```
+        {
+          "iss": "http://api.vanmoof-api.com",
+          "iat": {issued_at_timestamp},
+          "nbf": {not_before_timestamp},
+          "exp": {expiration_timestamp},
+          "user": {userID},
+          "api_key": 3,
+          "device": null,
+          "refresh_token": "{UUIDv4}"
+        }
+        ```
       authenticated: false
     headers:
       Authorization: Basic dXNlckBleGFtcGxlLmNvbTpwYXNzd29yZA==
@@ -32,7 +47,7 @@ endpoints:
       description: |
         Exchange the initial token for an Application JWT used for subsequent requests.
 
-        The JWT payload typically contains the following claims:
+        JWT payload:
         ```json
         {
           "iss": "http://api.vanmoof-api.com",
