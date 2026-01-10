@@ -1,17 +1,35 @@
-name: Login
-description: Login
+name: Authentication
+description: Endpoints for user authentication
 endpoints:
-  - httpMethods: [ "GET" ]
-    uri: api/v8/authenticate
+  - httpMethods: [ "POST" ]
+    uri: v8/authenticate
     metadata:
-      title: Login
-      description: Returns a token.
-      authenticated: true
-    parameters:
-      limit:
-        description: Login.
-        required: true
-        example: 10
+      title: 1. Obtain Initial Token
+      description: Authenticate with email and password to get an initial token.
+      authenticated: false
+    headers:
+      Authorization: Basic dXNlckBleGFtcGxlLmNvbTpwYXNzd29yZA==
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    bodyParameters: []
     responses:
       - status: 200
-        content: '{"token": "token"}'
+        description: Success
+        content:
+          application/json:
+            token: "initial_auth_token"
+
+  - httpMethods: [ "GET" ]
+    uri: v8/getApplicationToken
+    metadata:
+      title: 2. Obtain Application Token
+      description: Exchange the initial token for an Application JWT used for subsequent requests.
+      authenticated: true
+    headers:
+      Authorization: Bearer <initial_auth_token>
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    responses:
+      - status: 200
+        description: Success
+        content:
+          application/json:
+            token: "jwt_application_token"
