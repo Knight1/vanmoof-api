@@ -45,6 +45,15 @@ jobs:
         run: |
           cd temp_app
           php artisan scribe:generate --no-extraction --verbose
+          # Fix 1: Resolve "../docs/" paths which fail at the root of GitHub Pages
+          sed -i 's|\.\./docs/|\./|g' public/docs/index.html
+          # Fix 2: Remove localhost reference in asset paths
+          sed -i 's|http://localhost/docs/|./|g' public/docs/index.html
+          # Fix 3: Convert absolute /docs/ paths to relative ./
+          sed -i 's|"/docs/|"\./|g' public/docs/index.html
+          sed -i "s|'/docs/|'\./|g" public/docs/index.html
+          # Fix 4: Set a valid API Base URL (replacing localhost)
+          sed -i 's|http://localhost|https://my.vanmoof.com|g' public/docs/index.html
           ls -la public/docs || echo "Docs directory not found"
 
       - name: Deploy to GitHub Pages
