@@ -63,7 +63,7 @@ endpoints:
         ```
       authenticated: true
     headers:
-      Authorization: Bearer <initial_auth_token>
+      Authorization: Bearer {INITIAL_AUTH_TOKEN}
       Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
     responses:
       - status: 200
