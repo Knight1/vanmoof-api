@@ -520,3 +520,32 @@ endpoints:
       - status: 422
         description: Validation Failed
         content: '{"error":"ValidationException","message":"Validation failed","violations":{"guid":["The guid field is required."]}}'
+  - httpMethods: [ "POST" ]
+    uri: v8/removeCustomerBikeSharingForBike
+    metadata:
+      title: Remove Customer Bike Sharing For Bike
+      description: Remove all bike sharing invitations for a specific bike.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      bikeId:
+        name: bikeId
+        description: The ID of the bike for which to remove sharing invitations.
+        type: integer
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": true}'
+      - status: 400 
+        description: Validation Failed
+        content: '{"error":"BikeNotFoundException","message":"Bike not found"}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Validation Failed
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
