@@ -167,3 +167,31 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+  - httpMethods: [ "GET" ]
+    uri: v8/getBikeDataHash/{bikeId}
+    metadata:
+      title: Get Bike Data Hash
+      description: Retrieve the hash for a specific bike using its bike ID.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    urlParameters:
+      bikeId:
+        name: bikeId
+        description: The bike ID
+        type: integer
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"hash": "{MD5_HASH}"}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 401
+        description: Customer Not Authorized
+        content: '{"error": "CustomerNotAuthorizedException", "message": "Customer not authorized for this action"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
