@@ -250,7 +250,7 @@ endpoints:
     responses:
       - status: 200
         description: Success
-        content: '{"result": {"guid": "{UUIDv3}", "expiresAt": "{ISO8601 Date}", "startsAt": null, "endsAt": null, "duration": {time in seconds}, "role": "user", "email": "{email}"}}'
+        content: '{"result": {"guid": "{UUIDv3}", "expiresAt": "{ISO8601 Date}", "startsAt": null, "endsAt": null, "duration": "{time in seconds}", "role": "user", "email": "{email}"}}'
       - status: 400
         description: Validation Failed
         content: '{"error":"ValidationException","message":"Validation failed","violations":{"email":["The email must be a valid email address."],"duration":["The duration must be an integer."]}}'
