@@ -106,13 +106,18 @@ endpoints:
         required: true
       confirmationUrl:
         name: confirmationUrl
-        description: URL for email confirmation
+        description: URL for email confirmation (Try https://www.vanmoof.com/my-vanmoof/en/account/confirm/{confirmation_token})
         type: string
         required: true
+      newsletter:
+        name: newsletter
+        description: Subscribe to newsletter
+        type: boolean
+        required: false
     responses:
       - status: 200
-        description: Success \#TODO
-        content: ''
+        description: Success
+        content: '{"result":{"uuid":"{Customer UUIDv3}","name":"{Customer Name}","email":"{Customer Email}","emailConfirmed":false,"privacyPolicyAccepted":false}}'
       - status: 400
         description: Validation Failed
         content: '{"error": "ValidationException", "message": "Validation failed", "violations": {"name": ["The name field is required."], "email": ["The email field is required."], "country": ["The country field is required."], "password": ["The password field is required."], "confirmationUrl": ["The confirmationUrl field is required."]}}'
