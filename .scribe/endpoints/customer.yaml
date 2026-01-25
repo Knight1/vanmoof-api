@@ -66,7 +66,7 @@ endpoints:
     responses:
       - status: 200
         description: Success
-        content: '{"result": {"uuid": "{Customer UUIDv3}", "name": "{Customer Name}", "email": "{Customer Email}", "emailConfirmed": boolean, "phone": "{Customer Phone}", "country": "{ISO 3166-1}", "links": {"show": "http:\/\/api.vanmoof-api.com\/v8\/getCustomerData"}}}'
+        content: '{"result": {"uuid": "{Customer UUIDv3}", "name": "{Customer Name}", "email": "{Customer Email}", "emailConfirmed": "boolean", "phone": "{Customer Phone}", "country": "{ISO 3166-1}", "links": {"show": "http:\/\/api.vanmoof-api.com\/v8\/getCustomerData"}}}'
       - status: 401
         description: Invalid Credentials
         content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
