@@ -19,316 +19,285 @@ endpoints:
     responses:
       - status: 200
         description: Success
-        content: >
-          '{"data": {
-            "uuid": "{UUIDv4}",
-            "name": "{Customer Name}",
-            "email": "{Customer Email}",
-            "confirmed": boolean,
-            "privacyPolicyAccepted": boolean,
-            "phone": "",
-            "country": "{Country Code}",
-            "bikes": [
-              {
-                "id": {BikeID},
-                "name": "VanMoof",
-                "frameNumber": "ASY31ddddd",
-                "bikeId": "ASY31ddddd",
-                "frameSerial": null,
-                "ownerName": "{Owner}",
-                "pendingSmartmoduleMacAddress": null,
-                "macAddress": "{MAC Address}",
-                "mainEcuSerial": null,
-                "bleProfile": "ELECTRIFIED_2021",
-                "controller": "2020 S",
-                "eLock": true,
-                "speaker": true,
-                "smartmoduleCurrentVersion": "1.8.2",
-                "smartmoduleDesiredVersion": "1.9.1",
-                "smartmoduleLatestStable": false,
-                "highestAvailableSpeedLimit": null,
-                "tripDistance": {TripDistance},
-                "modelName": "VM01-203-EU",
-                "modelColor": {
-                  "name": "Light",
-                  "primary": "#7a99ac",
-                  "secondary": "#7a99ac"
-                },
-                "frameShape": "S",
-                "customerRole": "owner",
-                "startsAt": "{Date}",
-                "endsAt": null,
-                "permissions": [
-                  "ADD_USER",
-                  "FIRMWARE_UPDATES",
-                  "REMOVE_USER",
-                  "REPORT_FOUND",
-                  "REPORT_STOLEN",
-                  "SEND_STATISTICS",
-                  "BACKUP_CODE",
-                  "BIKE_NAME",
-                  "VIEW_THEFT_CASES",
-                  "ALARM_SETTINGS",
-                  "COUNTRY_SETTINGS",
-                  "LIGHTS",
-                  "MOTOR_SUPPORT_LEVEL",
-                  "UNLOCK",
-                  "READ_VALUES",
-                  "STOLEN_MODE",
-                  "SWAP_SMARTMODULE"
-                ],
-                "isTracking": false,
-                "stolen": {
-                  "isStolen": false,
-                  "dateStolen": null,
-                  "status": "not_stolen",
-                  "latestLocation": null
-                },
-                "links": {
-                  "thumbnail": "https://my.vanmoof.com/image/model/84",
-                  "show": "http://api.vanmoof-api.com/v8/getBikeData/{BikeID}"
-                }
-              },
-              {
-                "id": {BikeID},
-                "name": "VanMoof",
-                "frameNumber": "SVTBKLdddddLL",
-                "bikeId": "SVTBKLdddddLL",
-                "frameSerial": "AST52IdddddL",
-                "ownerName": "{Owner}",
-                "pendingSmartmoduleMacAddress": null,
-                "macAddress": null,
-                "mainEcuSerial": "",
-                "bleProfile": "ELECTRIFIED_2022",
-                "controller": "2022",
-                "eLock": true,
-                "speaker": true,
-                "smartmoduleCurrentVersion": null,
-                "smartmoduleDesiredVersion": null,
-                "smartmoduleLatestStable": false,
-                "highestAvailableSpeedLimit": null,
-                "tripDistance": {TripDistance},
-                "modelName": "B-05S-E01EU-XX",
-                "modelColor": {
-                  "name": "Gray",
-                  "primary": "#929393",
+        content:
+          data:
+            uuid: "{UUIDv4}"
+            name: "{Customer Name}"
+            email: "{Customer Email}"
+            confirmed: boolean
+            privacyPolicyAccepted: boolean
+            phone: ""
+            country: "{Country Code}"
+            bikes:
+              - id: "{BikeID}"
+                name: "VanMoof"
+                frameNumber: "ASY31ddddd"
+                bikeId: "ASY31ddddd"
+                frameSerial: null
+                ownerName: "{Owner}"
+                pendingSmartmoduleMacAddress: null
+                macAddress: "{MAC Address}"
+                mainEcuSerial: null
+                bleProfile: "ELECTRIFIED_2021"
+                controller: "2020 S"
+                eLock: true
+                speaker: true
+                smartmoduleCurrentVersion: "1.8.2"
+                smartmoduleDesiredVersion: "1.9.1"
+                smartmoduleLatestStable: false
+                highestAvailableSpeedLimit: null
+                tripDistance: "{TripDistance}"
+                modelName: "VM01-203-EU"
+                modelColor:
+                  name: "Light"
+                  primary: "#7a99ac"
+                  secondary: "#7a99ac"
+                frameShape: "S"
+                customerRole: "owner"
+                startsAt: "{Date}"
+                endsAt: null
+                permissions:
+                  - "ADD_USER"
+                  - "FIRMWARE_UPDATES"
+                  - "REMOVE_USER"
+                  - "REPORT_FOUND"
+                  - "REPORT_STOLEN"
+                  - "SEND_STATISTICS"
+                  - "BACKUP_CODE"
+                  - "BIKE_NAME"
+                  - "VIEW_THEFT_CASES"
+                  - "ALARM_SETTINGS"
+                  - "COUNTRY_SETTINGS"
+                  - "LIGHTS"
+                  - "MOTOR_SUPPORT_LEVEL"
+                  - "UNLOCK"
+                  - "READ_VALUES"
+                  - "STOLEN_MODE"
+                  - "SWAP_SMARTMODULE"
+                isTracking: false
+                stolen:
+                  isStolen: false
+                  dateStolen: null
+                  status: "not_stolen"
+                  latestLocation: null
+                links:
+                  thumbnail: "https://my.vanmoof.com/image/model/84"
+                  show: "http://api.vanmoof-api.com/v8/getBikeData/{BikeID}"
+              - id: "{BikeID}"
+                name: "VanMoof"
+                frameNumber: "SVTBKLdddddLL"
+                bikeId: "SVTBKLdddddLL"
+                frameSerial: "AST52IdddddL"
+                ownerName: "{Owner}"
+                pendingSmartmoduleMacAddress: null
+                macAddress: null
+                mainEcuSerial: ""
+                bleProfile: "ELECTRIFIED_2022"
+                controller: "2022"
+                eLock: true
+                speaker: true
+                smartmoduleCurrentVersion: null
+                smartmoduleDesiredVersion: null
+                smartmoduleLatestStable: false
+                highestAvailableSpeedLimit: null
+                tripDistance: "{TripDistance}"
+                modelName: "B-05S-E01EU-XX"
+                modelColor:
+                  name: "Gray"
+                  primary: "#929393"
                   "secondary": "#929393"
-                },
-                "frameShape": "S",
-                "customerRole": "owner",
-                "startsAt": "{Date}",
-                "endsAt": null,
-                "permissions": [
-                  "ADD_USER",
-                  "FIRMWARE_UPDATES",
-                  "REMOVE_USER",
-                  "REPORT_FOUND",
-                  "REPORT_STOLEN",
-                  "SEND_STATISTICS",
-                  "BACKUP_CODE",
-                  "BIKE_NAME",
-                  "VIEW_THEFT_CASES",
-                  "ALARM_SETTINGS",
-                  "COUNTRY_SETTINGS",
-                  "LIGHTS",
-                  "MOTOR_SUPPORT_LEVEL",
-                  "UNLOCK",
-                  "READ_VALUES",
-                  "STOLEN_MODE",
-                  "SWAP_SMARTMODULE"
-                ],
-                "isTracking": false,
-                "stolen": {
-                  "isStolen": false,
-                  "dateStolen": null,
-                  "status": "not_stolen",
-                  "latestLocation": null
-                },
-                "links": {
-                  "thumbnail": "https://my.vanmoof.com/image/model/99",
-                  "show": "http://api.vanmoof-api.com/v8/getBikeData/{BikeID}"
-                }
-              }
-            ],
-            "hasPendingBikeSharingInvitations": false,
-            "links": {
-              "hash": "http://api.vanmoof-api.com/v8/getCustomerDataHash",
-              "devices": "http://api.vanmoof-api.com/v8/getDevices",
-              "resendConfirmation": null,
-              "update": "http://api.vanmoof-api.com/v8/updateCustomer",
-              "addBike": "http://api.vanmoof-api.com/v8/registerBikeToCurrentUser",
-              "addFcmToken": "http://api.vanmoof-api.com/v8/registrationToken",
-              "theftCases": "http://api.vanmoof-api.com/v8/getCurrentTheftCasesForCurrentUser"
-            },
-            "bikeDetails": [
-              {
-                "id": {BikeID},
-                "name": "VanMoof",
-                "frameNumber": "ASY31ddddd",
-                "bikeId": "ASY31ddddd",
-                "frameSerial": null,
-                "ownerName": "{Owner}",
-                "tripDistance": 1234,
-                "pendingSmartmoduleMacAddress": null,
-                "macAddress": "{MAC Address}",
-                "mainEcuSerial": null,
-                "smartmoduleCurrentVersion": "1.8.2",
-                "smartmoduleDesiredVersion": "1.9.1",
-                "smartmoduleLatestStable": false,
-                "changeBackupCode": false,
-                "isTracking": false,
-                "highestAvailableSpeedLimit": null,
-                "messageAvailable": false,
-                "modelName": "VM01-203-EU",
-                "modelDetails": {
-                  "Gears": "Automatic 4 speed shifting gears",
-                  "Motor": "250 - 500 W front-wheel hub motor",
-                  "Top Speed": "25 km/h (EU speed)",
-                  "Range": "60 km (full power) ~ 150 km (economy mode)",
-                  "Edition": "ES-3 2G"
-                },
-                "modelColor": {
-                  "name": "Light",
-                  "primary": "#7a99ac",
-                  "secondary": "#7a99ac"
-                },
-                "frameShape": "S",
-                "manufacturer": "muco",
-                "controller": "2020 S",
-                "updateMethod": "OAD (encrypted)",
-                "eLock": true,
-                "gsmModule": "2G",
-                "speaker": true,
-                "bleProfile": "ELECTRIFIED_2021",
-                "bleVersion": null,
-                "messagesViaBLE": "BLEv2",
-                "customerRoleFamily": "Responsible",
-                "customerRole": "owner",
-                "startsAt": "{Date}",
-                "endsAt": null,
-                "permissions": [
-                  "ADD_USER",
-                  "FIRMWARE_UPDATES",
-                  "REMOVE_USER",
-                  "REPORT_FOUND",
-                  "REPORT_STOLEN",
-                  "SEND_STATISTICS",
-                  "BACKUP_CODE",
-                  "BIKE_NAME",
-                  "VIEW_THEFT_CASES",
-                  "ALARM_SETTINGS",
-                  "COUNTRY_SETTINGS",
-                  "LIGHTS",
-                  "MOTOR_SUPPORT_LEVEL",
-                  "UNLOCK",
-                  "READ_VALUES",
-                  "STOLEN_MODE",
-                  "SWAP_SMARTMODULE"
-                ],
-                "key": {
-                  "encryptionKey": "{BLE Encryption Key}",
-                  "passcode": "{BLE Passcode}",
-                  "userKeyId": 1
-                },
-                "isFactoryKey": false,
-                "customerCount": 1,
-                "invitationCount": 0,
-                "stolen": {
-                  "isStolen": false,
-                  "dateStolen": null,
-                  "status": "not_stolen",
-                  "latestLocation": null
-                },
-                "hasPeaceOfMind": false,
-                "peaceOfMind": null,
-                "links": {
-                  "hash": "http://api.vanmoof-api.com/v8/getBikeDataHash/{BikeID}",
-                  "thumbnail": "https://my.vanmoof.com/image/model/84"
-                },
-                "serviceModeEnabled": false,
-                "workshopInfo": []
-              },
-              {
-                "id": {BikeID},
-                "name": "VanMoof",
-                "frameNumber": "SVTBKLdddddLL",
-                "bikeId": "SVTBKLdddddLL",
-                "frameSerial": "AST52IdddddL",
-                "ownerName": "{Owner}",
-                "tripDistance": {TripDistance},
-                "pendingSmartmoduleMacAddress": null,
-                "macAddress": null,
-                "mainEcuSerial": "",
-                "smartmoduleCurrentVersion": null,
-                "smartmoduleDesiredVersion": null,
-                "smartmoduleLatestStable": false,
-                "changeBackupCode": true,
-                "isTracking": false,
-                "highestAvailableSpeedLimit": null,
-                "messageAvailable": false,
-                "modelName": "B-05S-E01EU-XX",
-                "modelDetails": null,
-                "modelColor": {
-                  "name": "Gray",
-                  "primary": "#929393",
-                  "secondary": "#929393"
-                },
-                "frameShape": "S",
-                "manufacturer": "pegatron",
-                "controller": "2022",
-                "updateMethod": "OAD (encrypted)",
-                "eLock": true,
-                "gsmModule": "4G",
-                "speaker": true,
-                "bleProfile": "ELECTRIFIED_2022",
-                "bleVersion": null,
-                "messagesViaBLE": "BLEv2",
-                "customerRoleFamily": "Responsible",
-                "customerRole": "owner",
-                "startsAt": "{Date}",
-                "endsAt": null,
-                "permissions": [
-                  "ADD_USER",
-                  "FIRMWARE_UPDATES",
-                  "REMOVE_USER",
-                  "REPORT_FOUND",
-                  "REPORT_STOLEN",
-                  "SEND_STATISTICS",
-                  "BACKUP_CODE",
-                  "BIKE_NAME",
-                  "VIEW_THEFT_CASES",
-                  "ALARM_SETTINGS",
-                  "COUNTRY_SETTINGS",
-                  "LIGHTS",
-                  "MOTOR_SUPPORT_LEVEL",
-                  "UNLOCK",
-                  "READ_VALUES",
-                  "STOLEN_MODE",
-                  "SWAP_SMARTMODULE"
-                ],
-                "key": null,
-                "isFactoryKey": true,
-                "customerCount": 1,
-                "invitationCount": 0,
-                "stolen": {
-                  "isStolen": false,
-                  "dateStolen": null,
-                  "status": "not_stolen",
-                  "latestLocation": null
-                },
-                "hasPeaceOfMind": false,
-                "peaceOfMind": null,
-                "links": {
-                  "hash": "http://api.vanmoof-api.com/v8/getBikeDataHash/{BikeID}",
-                  "thumbnail": "https://my.vanmoof.com/image/model/99"
-                },
-                "serviceModeEnabled": false,
-                "workshopInfo": []
-              }
-            ]
-          },
-          "hash": "{DATA_HASH}"
-        }'
+                frameShape: "S"
+                customerRole: "owner"
+                startsAt: "{Date}"
+                endsAt: null
+                permissions:
+                  - "ADD_USER"
+                  - "FIRMWARE_UPDATES"
+                  - "REMOVE_USER"
+                  - "REPORT_FOUND"
+                  - "REPORT_STOLEN"
+                  - "SEND_STATISTICS"
+                  - "BACKUP_CODE"
+                  - "BIKE_NAME"
+                  - "VIEW_THEFT_CASES"
+                  - "ALARM_SETTINGS"
+                  - "COUNTRY_SETTINGS"
+                  - "LIGHTS"
+                  - "MOTOR_SUPPORT_LEVEL"
+                  - "UNLOCK"
+                  - "READ_VALUES"
+                  - "STOLEN_MODE"
+                  - "SWAP_SMARTMODULE"
+                isTracking: false
+                stolen:
+                  isStolen: false
+                  dateStolen: null
+                  status: "not_stolen"
+                  latestLocation: null
+                links:
+                  thumbnail: "https://my.vanmoof.com/image/model/99"
+                  show: "http://api.vanmoof-api.com/v8/getBikeData/{BikeID}"
+            hasPendingBikeSharingInvitations: false
+            links:
+              hash: "http://api.vanmoof-api.com/v8/getCustomerDataHash"
+              devices: "http://api.vanmoof-api.com/v8/getDevices"
+              resendConfirmation: null
+              update: "http://api.vanmoof-api.com/v8/updateCustomer"
+              addBike: "http://api.vanmoof-api.com/v8/registerBikeToCurrentUser"
+              addFcmToken: "http://api.vanmoof-api.com/v8/registrationToken"
+              theftCases: "http://api.vanmoof-api.com/v8/getCurrentTheftCasesForCurrentUser"
+            bikeDetails:
+              - id: "{BikeID}"
+                name: "VanMoof"
+                frameNumber: "ASY31ddddd"
+                bikeId: "ASY31ddddd"
+                frameSerial: null
+                ownerName: "{Owner}"
+                tripDistance: 1234
+                pendingSmartmoduleMacAddress: null
+                macAddress: "{MAC Address}"
+                mainEcuSerial: null
+                smartmoduleCurrentVersion: "1.8.2"
+                smartmoduleDesiredVersion: "1.9.1"
+                smartmoduleLatestStable: false
+                changeBackupCode: false
+                isTracking: false
+                highestAvailableSpeedLimit: null
+                messageAvailable: false
+                modelName: "VM01-203-EU"
+                modelDetails:
+                  Gears: "Automatic 4 speed shifting gears"
+                  Motor: "250 - 500 W front-wheel hub motor"
+                  "Top Speed": "25 km/h (EU speed)"
+                  Range: "60 km (full power) ~ 150 km (economy mode)"
+                  Edition: "ES-3 2G"
+                modelColor:
+                  name: "Light"
+                  primary: "#7a99ac"
+                  secondary: "#7a99ac"
+                frameShape: "S"
+                manufacturer: "muco"
+                controller: "2020 S"
+                updateMethod: "OAD (encrypted)"
+                eLock: true
+                gsmModule: "2G"
+                speaker: true
+                bleProfile: "ELECTRIFIED_2021"
+                bleVersion: null
+                messagesViaBLE: "BLEv2"
+                customerRoleFamily: "Responsible"
+                customerRole: "owner"
+                startsAt: "{Date}"
+                endsAt: null
+                permissions:
+                  - "ADD_USER"
+                  - "FIRMWARE_UPDATES"
+                  - "REMOVE_USER"
+                  - "REPORT_FOUND"
+                  - "REPORT_STOLEN"
+                  - "SEND_STATISTICS"
+                  - "BACKUP_CODE"
+                  - "BIKE_NAME"
+                  - "VIEW_THEFT_CASES"
+                  - "ALARM_SETTINGS"
+                  - "COUNTRY_SETTINGS"
+                  - "LIGHTS"
+                  - "MOTOR_SUPPORT_LEVEL"
+                  - "UNLOCK"
+                  - "READ_VALUES"
+                  - "STOLEN_MODE"
+                  - "SWAP_SMARTMODULE"
+                key:
+                  encryptionKey: "{BLE Encryption Key}"
+                  passcode: "{BLE Passcode}"
+                  userKeyId: 1
+                isFactoryKey: false
+                customerCount: 1
+                invitationCount: 0
+                stolen:
+                  isStolen: false
+                  dateStolen: null
+                  status: "not_stolen"
+                  latestLocation: null
+                hasPeaceOfMind: false
+                peaceOfMind: null
+                links:
+                  hash: "http://api.vanmoof-api.com/v8/getBikeDataHash/{BikeID}"
+                  thumbnail: "https://my.vanmoof.com/image/model/84"
+                serviceModeEnabled: false
+                workshopInfo: []
+              - id: "{BikeID}"
+                name: "VanMoof"
+                frameNumber: "SVTBKLdddddLL"
+                bikeId: "SVTBKLdddddLL"
+                frameSerial: "AST52IdddddL"
+                ownerName: "{Owner}"
+                tripDistance: "{TripDistance}"
+                pendingSmartmoduleMacAddress: null
+                macAddress: null
+                mainEcuSerial: ""
+                smartmoduleCurrentVersion: null
+                smartmoduleDesiredVersion: null
+                smartmoduleLatestStable: false
+                changeBackupCode: true
+                isTracking: false
+                highestAvailableSpeedLimit: null
+                messageAvailable: false
+                modelName: "B-05S-E01EU-XX"
+                modelDetails: null
+                modelColor:
+                  name: "Gray"
+                  primary: "#929393"
+                  secondary: "#929393"
+                frameShape: "S"
+                manufacturer: "pegatron"
+                controller: "2022"
+                updateMethod: "OAD (encrypted)"
+                eLock: true
+                gsmModule: "4G"
+                speaker: true
+                bleProfile: "ELECTRIFIED_2022"
+                bleVersion: null
+                messagesViaBLE: "BLEv2"
+                customerRoleFamily: "Responsible"
+                customerRole: "owner"
+                startsAt: "{Date}"
+                endsAt: null
+                permissions:
+                  - "ADD_USER"
+                  - "FIRMWARE_UPDATES"
+                  - "REMOVE_USER"
+                  - "REPORT_FOUND"
+                  - "REPORT_STOLEN"
+                  - "SEND_STATISTICS"
+                  - "BACKUP_CODE"
+                  - "BIKE_NAME"
+                  - "VIEW_THEFT_CASES"
+                  - "ALARM_SETTINGS"
+                  - "COUNTRY_SETTINGS"
+                  - "LIGHTS"
+                  - "MOTOR_SUPPORT_LEVEL"
+                  - "UNLOCK"
+                  - "READ_VALUES"
+                  - "STOLEN_MODE"
+                  - "SWAP_SMARTMODULE"
+                key: null
+                isFactoryKey: true
+                customerCount: 1
+                invitationCount: 0
+                stolen:
+                  isStolen: false
+                  dateStolen: null
+                  status: "not_stolen"
+                  latestLocation: null
+                hasPeaceOfMind: false
+                peaceOfMind: null
+                links:
+                  hash: "http://api.vanmoof-api.com/v8/getBikeDataHash/{BikeID}"
+                  thumbnail: "https://my.vanmoof.com/image/model/99"
+                serviceModeEnabled: false
+                workshopInfo: []
+          hash: "{DATA_HASH}"
       - status: 401
         description: Unauthorized
         content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
