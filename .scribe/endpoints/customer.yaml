@@ -331,9 +331,7 @@ endpoints:
         }'
       - status: 401
         description: Unauthorized
-        content:
-          '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
       - status: 422
         description: Unprocessable Entity
-        content:
-          '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
