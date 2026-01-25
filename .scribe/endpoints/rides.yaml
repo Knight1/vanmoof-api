@@ -2,7 +2,7 @@ name: Rides
 description: Endpoints for tracking and retrieving rider rides
 endpoints:
   - httpMethods: [ "GET" ]
-    uri: https://tenjin.vanmoof.com/api/v1/riders/{riderID}/preferences
+    uri: "https://tenjin.vanmoof.com/api/v1/riders/{riderID}/preferences"
     metadata:
       title: Get Rider Preferences
       description: |
