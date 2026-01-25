@@ -27,6 +27,55 @@ endpoints:
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
 
+  - httpMethods: [ "POST" ]
+    uri: v8/createCustomer
+    metadata:
+      title: Create Customer
+      description: Create a new customer account. All fields are required. TODo: Find out what the confirmationUrl is for.
+      authenticated: false
+    headers:
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json
+    bodyParameters:
+      name:
+        name: name
+        description: Customer's full name
+        type: string
+        required: true
+      email:
+        name: email
+        description: Customer email address
+        type: string
+        required: true
+      country:
+        name: country
+        description: Country code (ISO)
+        type: string
+        required: true
+      password:
+        name: password
+        description: Account password
+        type: string
+        required: true
+      confirmationUrl:
+        name: confirmationUrl
+        description: URL for email confirmation
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success #TODO
+        content: ''
+      - status: 400
+        description: Validation Failed
+        content: '{"error": "ValidationException", "message": "Validation failed", "violations": {"name": ["The name field is required."], "email": ["The email field is required."], "country": ["The country field is required."], "password": ["The password field is required."], "confirmationUrl": ["The confirmationUrl field is required."]}}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 401
+        description: Customer Not Authorized
+        content: '{"error":"CustomerNotAuthorizedException","message":"Customer not authorized for this action"}'
+
   - httpMethods: [ "GET" ]
     uri: v8/getCustomerDataHash
     metadata:
