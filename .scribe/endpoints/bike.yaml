@@ -1,0 +1,34 @@
+name: Bike
+description: Endpoints for bike operations
+endpoints:
+  - httpMethods: [ "POST" ]
+    uri: v8/changeBikeName/{bikeId}
+    metadata:
+      title: Change Bike Name
+      description: Change the name of a specific bike.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    urlParameters:
+      bikeId:
+        name: bikeId
+        description: The bike ID
+        type: integer
+        required: true
+    bodyParameters:
+      name:
+        name: name
+        description: New name for the bike
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": true}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
