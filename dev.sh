@@ -26,7 +26,12 @@ fi
 composer create-project laravel/laravel temp_app --prefer-dist --quiet
 cd temp_app
 composer require knuckleswtf/scribe --dev
-php artisan vendor:publish --tag=scribe-config
+#php artisan vendor:publish --tag=scribe-config
 cp ../scribe.php config/scribe.php
 cp -r ../.scribe .scribe
 php artisan scribe:generate --no-extraction --verbose
+sed -i '' 's|\.\./docs/|\./|g' public/docs/index.html
+
+# Start a simple Python web server to serve the generated docs locally
+cd public/docs
+python3 -m http.server 8000
