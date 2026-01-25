@@ -539,8 +539,32 @@ endpoints:
         description: Success
         content: '{"result": true}'
       - status: 400
-        description: Customer Not Confirmed
+        description: Wrong Token
         content: '{"error": "CustomerNotConfirmedException", "message": "Customer account is not confirmed"}'
       - status: 401
         description: Unauthorized
         content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "POST" ]
+    uri: v8/privacyPolicyAccepted
+    metadata:
+      title: Privacy Policy Accepted
+      description: Mark the privacy policy as accepted for the authenticated customer.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": true}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
