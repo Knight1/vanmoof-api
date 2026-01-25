@@ -132,3 +132,32 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "GET" ]
+    uri: v8/getTheftCase/{frameNumber}
+    metadata:
+      title: Get Theft Case
+      description: Retrieve theft case information for a specific bike by frame number.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    urlParameters:
+      frameNumber:
+        name: frameNumber
+        description: The bike frame number
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success #TODO: Example missing
+        content: '{}'
+      - status: 400
+        description: Bike Not Stolen
+        content: '{"error":"BikeNotStolenException","message":"Bike not stolen"}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
