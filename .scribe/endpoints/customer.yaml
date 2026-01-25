@@ -2,10 +2,30 @@ name: Customer
 description: Endpoints for customer data
 endpoints:
   - httpMethods: [ "GET" ]
+    uri: v8/getBikeSharingInvitations
+    metadata:
+      title: Get Bike Sharing Invitations
+      description: Retrieve bike sharing invitations for the authenticated user. Hash is likely MD5.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    responses:
+      - status: 200
+        description: Success
+        content: '{"invitations": [], "hash": "{MD5_HASH}"}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "GET" ]
     uri: v8/getCustomerData
     metadata:
       title: Get Customer Data
-      description: Retrieve the authenticated customer's data and associated bikes. Data Hash is unclear but liekly md5.
+      description: Retrieve the authenticated customer's data and associated bikes. Data Hash is likely MD5.
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
