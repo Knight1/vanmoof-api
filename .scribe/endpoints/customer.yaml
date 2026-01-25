@@ -242,7 +242,7 @@ endpoints:
                 "hasPeaceOfMind": false,
                 "peaceOfMind": null,
                 "links": {
-                  "hash": "http://api.vanmoof-api.com/v8/getBikeDataHash/{BikeID}]",
+                  "hash": "http://api.vanmoof-api.com/v8/getBikeDataHash/{BikeID}",
                   "thumbnail": "https://my.vanmoof.com/image/model/84"
                 },
                 "serviceModeEnabled": false,
