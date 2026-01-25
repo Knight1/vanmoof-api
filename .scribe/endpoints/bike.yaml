@@ -298,7 +298,7 @@ endpoints:
     uri: v8/createWorkshopSharingInvitation
     metadata:
       title: Create Workshop Sharing Invitation
-      description: Create an invitation for a workshop to access a bike. Valid for 6 months.
+      description: Create an invitation for a workshop to access a bike. Valid for 6 months. QR Code content "https://www.vanmoof.com/invite-shop?email={Workshop Email}&name={workshop Name}"
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
