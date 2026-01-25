@@ -78,7 +78,7 @@ endpoints:
     uri: v8/createCustomer
     metadata:
       title: Create Customer
-      description: "Create a new customer account. All fields are required. TODO: Find out what the confirmationUrl is for. Password policy: The password must contain between 6 and 50 characters, a digit, an upper case and a lower case character"
+      description: "Create a new customer account. All fields are required. Password policy: The password must contain between 6 and 50 characters, a digit, an upper case and a lower case character"
       authenticated: false
     headers:
       Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
@@ -96,7 +96,7 @@ endpoints:
         required: true
       country:
         name: country
-        description: Country code (ISO)
+        description: Country code (ISO 3166-1 alpha-2)
         type: string
         required: true
       password:
