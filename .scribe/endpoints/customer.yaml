@@ -155,7 +155,7 @@ endpoints:
     uri: v8/getCustomerData
     metadata:
       title: Get Customer Data
-      description: Retrieve the authenticated customer's data and associated bikes. Data Hash is likely MD5.
+      description: Retrieve the authenticated customer's data and associated bikes. Data Hash is likely MD5. If a workshop is invited. The Field contains email, name, start and end. Also serviceModeEnabled is true for the time being in service mode.
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
