@@ -5,7 +5,7 @@ endpoints:
     uri: v8/changeBikeName/{bikeId}
     metadata:
       title: Change Bike Name
-      description: Change the name of a specific bike.
+      description: Change the name of a specific bike. Limited to 255 Characters.
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
