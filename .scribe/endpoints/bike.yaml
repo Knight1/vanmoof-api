@@ -427,7 +427,7 @@ endpoints:
     uri: v8/acceptBikeSharingInvitation/{guid}
     metadata:
       title: Accept Bike Sharing Invitation
-      description: Accept a bike sharing invitation using the invitation GUID.
+      description: Accept a bike sharing invitation using the invitation GUID. It responds with the same schema as getBikeData. "user" is missing ADD_USER, FIRMWARE_UPDATES, REMOVE_USER, BACKUP_CODE, BIKE_NAME, STOLEN_MODE, SWAP_SMARTMODULE permissions.
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
