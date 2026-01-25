@@ -1,0 +1,21 @@
+name: Rides
+description: Endpoints for tracking and retrieving rider rides
+endpoints:
+  - httpMethods: [ "GET" ]
+    uri: https://tenjin.vanmoof.com/api/v1/riders/{riderID}/preferences
+    metadata:
+      title: Get Rider Preferences
+      description: |
+        Retrieve rider preferences by rider UUID. The city field uses a format like "{COUNTRY CITY}" where COUNTRY is the international country code (e.g., DE for Germany) and CITY is the city code (e.g., FRA for Frankfurt am Main). Example: "DE FRA".
+    headers:
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    responses:
+      - status: 200
+        description: Success
+        content: |
+          {
+            "recordRides": true,
+            "recordCountry": false,
+            "city": "{COUNTRY CITY}",
+            "optedOutOfCity": false
+          }
