@@ -294,3 +294,40 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+  - httpMethods: [ "POST" ]
+    uri: v8/createWorkshopSharingInvitation
+    metadata:
+      title: Create Workshop Sharing Invitation
+      description: Create an invitation for a workshop to access a bike. Valid for 6 months.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json
+    bodyParameters:
+      email:
+        name: email
+        description: Workshop email address
+        type: string
+        required: true
+      bikeId:
+        name: bikeId
+        description: The bike ID to share with the workshop
+        type: integer
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": {"email": "{Workshop Email}", "name": "{Workshop Name}", "startsAt": "{ISO8601 Date}", "endsAt": "{ISO8601 Date}"}}'
+      - status: 400
+        description: Validation Failed
+        content: '{"error":"BikeSharingNotAWorkshopException","message":"The provided e-mail address does not belong to a valid bike workshop."}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 401
+        description: Customer Not Authorized
+        content: '{"error":"CustomerNotAuthorizedException","message":"Customer not authorized for this action"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
