@@ -392,3 +392,34 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+  - httpMethods: [ "POST" ]
+    uri: v8/declineBikeSharingInvitation/{guid}
+    metadata:
+      title: Decline Bike Sharing Invitation
+      description: Decline a bike sharing invitation using the invitation GUID.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    urlParameters:
+      guid:
+        name: guid
+        description: The GUID of the bike sharing invitation to decline.
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": true}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 401
+        description: Customer Not Authorized
+        content: '{"error":"CustomerNotAuthorizedException","message":"Customer not authorized for this action"}'
+      - status: 404
+        description: Invitation Not Found
+        content: '{"error":"BikeSharingInvitationNotFoundException","message":"This bike sharing invitation does not exist."}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
