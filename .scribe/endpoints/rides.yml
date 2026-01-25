@@ -19,3 +19,6 @@ endpoints:
             "city": "{COUNTRY CITY}",
             "optedOutOfCity": false
           }
+      - status: 401
+        description: Unauthorized - Also returned if the rider ID is invalid
+        content: '{"error":"Unauthorized"}'
