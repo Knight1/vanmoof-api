@@ -48,6 +48,32 @@ endpoints:
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
 
   - httpMethods: [ "GET" ]
+    uri: v8/getCustomersOnBike/{bikeId}
+    metadata:
+      title: Get Customers On Bike
+      description: Retrieve all customers associated with a specific bike.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    urlParameters:
+      bikeId:
+        name: bikeId
+        description: The bike ID
+        type: integer
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"customers": [{"name": "{Customer Name}", "email": "{Customer Email}", "role": "owner", "start": "{ISO8601 Date}", "end": null, "status": "current"}]}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "GET" ]
     uri: v8/getCustomerData
     metadata:
       title: Get Customer Data
