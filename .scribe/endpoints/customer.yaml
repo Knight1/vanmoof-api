@@ -28,6 +28,53 @@ endpoints:
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
 
   - httpMethods: [ "POST" ]
+    uri: v8/updateCustomer
+    metadata:
+      title: Update Customer
+      description: Update current customer's profile (partial updates allowed).
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json
+    bodyParameters:
+      name:
+        name: name
+        description: Customer full name
+        type: string
+        required: false
+      phone:
+        name: phone
+        description: Phone number
+        type: string
+        required: false
+      country:
+        name: country
+        description: Country code (ISO 3166-1 alpha-2)
+        type: string
+        required: false
+      email:
+        name: email
+        description: Customer email address
+        type: string
+        required: false
+      password:
+        name: password
+        description: Account password
+        type: string
+        required: false
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": {"uuid": "{Customer UUIDv3}", "name": "{Customer Name}", "email": "{Customer Email}", "emailConfirmed": boolean, "phone": "{Customer Phone}", "country": "{ISO 3166-1}", "links": {"show": "http:\/\/api.vanmoof-api.com\/v8\/getCustomerData"}}}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "POST" ]
     uri: v8/createCustomer
     metadata:
       title: Create Customer
