@@ -19,7 +19,7 @@ endpoints:
     responses:
       - status: 200
         description: Success
-        content: |
+        content: >
           '{"data": {
             "uuid": "{UUIDv4}",
             "name": "{Customer Name}",
