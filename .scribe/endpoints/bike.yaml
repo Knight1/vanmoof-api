@@ -33,6 +33,29 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+  - httpMethods: [ "POST" ]
+    uri: v8/changedBackupCode
+    metadata:
+      title: Changed Backup Code
+      description: Notify Backend that the bikes backup code was changed. Requires `macAddress` in body. Since the SA5 do not have the macAddress in the API.. This is kinda pointless. Even with the SA3 the API responds with macAddress field is required.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      macAddress:
+        name: macAddress
+        description: MAC address of the device
+        type: string
+        required: true
+    responses:
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Validation Failed
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"macAddress":["The macAddress field is required."]}}'
   - httpMethods: [ "GET" ]
     uri: v8/getBikeSharingInvitations
     metadata:
