@@ -10,6 +10,7 @@ endpoints:
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
       Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json
     urlParameters:
       bikeId:
         name: bikeId
