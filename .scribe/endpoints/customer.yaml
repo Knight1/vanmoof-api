@@ -396,3 +396,23 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "GET" ]
+    uri: v8/getCurrentTheftCasesForCurrentUser
+    metadata:
+      title: Get Current Theft Cases For Current User
+      description: Retrieve theft cases for the authenticated user.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    responses:
+      - status: 200
+        description: Success
+        content: '{"theftCases": []}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
