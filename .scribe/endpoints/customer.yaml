@@ -436,3 +436,26 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "POST" ]
+    uri: v8/resendConfirmationEmail
+    metadata:
+      title: Resend Confirmation Email
+      description: Resend confirmation email to the authenticated user.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+    responses:
+      - status: 200
+        description: Success #TODO
+        content: '{}'
+      - status: 400
+        description: Customer Already Confirmed
+        content: '{"error":"CustomerAlreadyConfirmedException","message":"Customer account is already confirmed"}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
