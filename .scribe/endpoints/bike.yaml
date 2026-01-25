@@ -263,6 +263,39 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "POST" ]
+    uri: v8/revokeWorkshopSharingInvitation
+    metadata:
+      title: Revoke Workshop Sharing Invitation
+      description: Revoke workshop sharing invitations for a specific bike. It updates the invitation and sets endsAt to now.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      bikeId:
+        name: bikeId
+        description: The bike ID to revoke workshop invitations for
+        type: integer
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": [{"email": "{Workshop Email}", "name": "{Workshop Name}", "startsAt": "{ISO8601 Date}", "endsAt": "{ISO8601 Date}"}]}'
+      - status: 200
+        description: Success (no workshops)
+        content: '{"result": []}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 401
+        description: Customer Not Authorized
+        content: '{"error":"CustomerNotAuthorizedException","message":"Customer not authorized for this action"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
   - httpMethods: [ "POST" ]
     uri: v8/revokeBikeSharingInvitation/{guid}
     metadata:
