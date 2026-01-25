@@ -2,11 +2,11 @@
 
 Welcome to the API documentation.
 
-# Authentication
+## Authentication
 
 To authenticate with the API, you must provide your VanMoof credentials to obtain an access token.
 
-## Headers
+### Headers
 
 All API requests require the following header:
 
@@ -14,7 +14,7 @@ All API requests require the following header:
 
 This is ```"api_key": 3```
 
-## 1. Obtain Initial Token
+### 1. Obtain Initial Token
 
 First, retrieve an initial authentication token using your email and password.
 
@@ -22,7 +22,7 @@ First, retrieve an initial authentication token using your email and password.
 
 The response will include a `token` field.
 
-## 2. Obtain Application Token (JWT)
+### 2. Obtain Application Token (JWT)
 
 Exchange the initial token for an Application Token (JWT), which is required for most other endpoints.
 
@@ -30,7 +30,7 @@ Exchange the initial token for an Application Token (JWT), which is required for
 
 The response will include a `token` field (the JWT).
 
-## 3. Authenticating Requests
+### 3. Authenticating Requests
 
 For all subsequent requests (e.g., getting bike data), include the Application Token in the `Authorization` header:
 
