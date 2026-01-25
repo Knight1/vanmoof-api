@@ -38,9 +38,6 @@ jobs:
           composer create-project laravel/laravel temp_app --prefer-dist --quiet
           cd temp_app
           composer require knuckleswtf/scribe --dev
-          # Publish config so we can modify it
-          php artisan vendor:publish --tag=scribe-config
-          # Copy custom config
           cp ../scribe.php config/scribe.php
           cp -r ../.scribe .scribe
 
