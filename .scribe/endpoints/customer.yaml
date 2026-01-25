@@ -121,6 +121,9 @@ endpoints:
       - status: 400
         description: Validation Failed
         content: '{"error": "ValidationException", "message": "Validation failed", "violations": {"name": ["The name field is required."], "email": ["The email field is required."], "country": ["The country field is required."], "password": ["The password field is required."], "confirmationUrl": ["The confirmationUrl field is required."]}}'
+      - status: 400
+        description: Email taken
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"email":["The email has already been taken."]}}'
       - status: 401
         description: Invalid Credentials
         content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
