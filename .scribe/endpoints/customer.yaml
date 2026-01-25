@@ -31,7 +31,7 @@ endpoints:
     uri: v8/updateCustomer
     metadata:
       title: Update Customer
-      description: Update current customer's profile (partial updates allowed).
+      description: Update current customer's profile (partial updates allowed). Updating the email or the password requires a fresh initial token from v8/authenticate. 
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
