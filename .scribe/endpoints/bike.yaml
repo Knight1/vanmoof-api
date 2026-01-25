@@ -69,6 +69,34 @@ endpoints:
       - status: 200
         description: Success
         content: '{"invitations": [], "hash": "{MD5_HASH}"}'
+      - status: 200
+        description: Success with invitations
+        content: >
+          {
+            "invitations": [
+              {
+                "guid": "{UUIDv3}",
+                "expiresAt": "{ISO8601 Date}",
+                "startsAt": null,
+                "endsAt": null,
+                "duration": {time in seconds},
+                "ownerName": "{Owner Name}",
+                "bikeName": "{Bike Name}",
+                "modelName": "B-05S-E01EU-XX",
+                "modelColor": {
+                  "name": "Gray",
+                  "primary": "#929393",
+                  "secondary": "#929393"
+                },
+                "frameShape": "S",
+                "bleProfile": "ELECTRIFIED_2022",
+                "links": {
+                  "thumbnail": "https://my.vanmoof.com/image/model/99"
+                }
+              }
+            ],
+            "hash": "{MD5_HASH}"
+          }
       - status: 401
         description: Unauthorized
         content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
