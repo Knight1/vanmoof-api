@@ -568,3 +568,40 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "POST" ]
+    uri: v8/forgotPassword
+    metadata:
+      title: Forgot Password
+      description: Request a password reset email for the given email address.
+      authenticated: false
+    headers:
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      email:
+        name: email
+        description: The email address associated with the account.
+        type: string
+        required: true
+      redirectUrl:
+        name: redirectUrl
+        description: The URL to redirect the user after a successful password reset. (Try https://www.vanmoof.com/my-vanmoof/en/auth/password/reset-success)
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": true}'
+      - status: 400
+        description: Validation Failed
+        content: >
+          {
+            "error": "ValidationException",
+            "message": "Validation failed",
+            "violations": {
+              "email": [
+                "The selected email is invalid."
+              ]
+            }
+          }
