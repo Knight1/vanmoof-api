@@ -26,7 +26,6 @@ fi
 composer create-project laravel/laravel temp_app --prefer-dist --quiet
 cd temp_app
 composer require knuckleswtf/scribe --dev
-#php artisan vendor:publish --tag=scribe-config
 cp ../scribe.php config/scribe.php
 cp -r ../.scribe .scribe
 php artisan scribe:generate --no-extraction --verbose
