@@ -549,3 +549,40 @@ endpoints:
       - status: 422
         description: Validation Failed
         content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
+  - httpMethods: [ "POST" ]
+    uri: v8/registerBikeToCurrentUser
+    metadata:
+      title: Register Bike To Current User
+      description: Register a bike to the currently authenticated user using the frame number and verification code.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      framenumber:
+        name: framenumber
+        description: The frame number of the bike to register.
+        type: string
+        required: true
+      verification:
+        name: verification
+        description: The verification code for the bike.
+        type: string
+        required: true
+      bikename:
+        name: bikename
+        description: The name to assign to the bike.
+        type: string
+        required: false
+    responses:
+      - status: 400
+        description: Bike Registration Failed
+        content: >
+          {
+            "error": "BikeRegisterToCurrentCustomerException",
+            "message": "This frame number can’t be registered."
+          }
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
