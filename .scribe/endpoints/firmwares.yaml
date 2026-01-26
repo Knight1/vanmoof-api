@@ -1,0 +1,27 @@
+name: Authentication
+description: Endpoints for user authentication. 
+endpoints:
+  - httpMethods: [ "GET" ]
+    uri: v1/firmwares/last
+    metadata:
+      title: Get Latest Firmware (SA5+)
+      description: Retrieve the latest firmware version and release notes for SA5 and later Bikes. USE https://fima.production.vanmoof.cloud
+      authenticated: true
+    headers:
+      Authorization: Bearer {APPLICATION_JWT_TOKEN}
+    responses:
+      - status: 200
+        description: Success
+        content: >
+          {
+            "version": "{version}",
+            "stage": "{stage}",
+            "releaseNotes": {
+              "EN": "",
+              "DE": "",
+              "NL": ""
+            }
+          }
+      - status: 403
+        description: Forbidden
+        content: '{"error": "Token not found"}'
