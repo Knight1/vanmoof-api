@@ -605,3 +605,30 @@ endpoints:
               ]
             }
           }
+
+  - httpMethods: [ "POST" ]
+    uri: v8/registrationToken
+    metadata:
+      title: Register APN Token
+      description: Submit a APN registration token. (Used for push notifications on Android. No longer used)
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      token:
+        name: token
+        description: The registration token to submit.
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": true}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
