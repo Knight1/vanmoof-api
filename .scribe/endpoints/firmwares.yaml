@@ -1,5 +1,5 @@
-name: Authentication
-description: Endpoints for user authentication. 
+name: Firmwares
+description: Endpoints for SA5+ firmwares 
 endpoints:
   - httpMethods: [ "GET" ]
     uri: v1/firmwares/last
