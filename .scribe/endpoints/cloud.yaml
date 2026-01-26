@@ -38,7 +38,7 @@ endpoints:
           channels:
             push:
               vehicles:
-                {FrameNumber}:
+                FrameNumber:
                   notifications:
                     alarm_state/1:
                       enabled: false
