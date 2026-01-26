@@ -614,7 +614,7 @@ endpoints:
     uri: v8/getDesiredUpdateVersionInfo/{bikeId}
     metadata:
       title: Get Desired Update Version Info
-      description: Retrieve the desired update version information for a specific bike.
+      description: Retrieve the desired update version information for a specific bike. This only works for at least the SA3/SA4 bikes. SA5 and later uses another API.
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
@@ -674,7 +674,7 @@ endpoints:
     uri: v8/getDesiredUpdateVersionFile/{bikeId}
     metadata:
       title: Get Desired Update Version File
-      description: Retrieve the desired update version file for a specific bike.
+      description: Retrieve the desired update version file for a specific bike. This only works for at least the SA3/SA4 bikes. SA5 and later uses another API.
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
