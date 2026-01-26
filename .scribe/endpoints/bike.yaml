@@ -180,6 +180,9 @@ endpoints:
       - status: 200
         description: Success
         content: '[]'
+      - status: 200
+        description: Success with content
+        content: '[{"content":""}]'
       - status: 400
         description: Validation Failed
         content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["You are not registered as customer of this bike."]}}'
