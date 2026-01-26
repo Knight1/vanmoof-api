@@ -3,8 +3,6 @@
 Old Authenticate API  
 ```https://my.vanmoof.com/api/v8/```
 
-```application/json```
-
 ```https://tenjin.vanmoof.com/api/v1/```  
 ```https://api.vanmoof-api.com/v8/```  
 ```https://notification.production.vanmoof.cloud/```  
