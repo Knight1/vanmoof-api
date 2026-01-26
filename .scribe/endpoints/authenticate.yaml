@@ -78,3 +78,32 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  - httpMethods: [ "POST" ]
+    uri: v8/token
+    metadata:
+      title: Refresh Token
+      description: Refresh the authentication token using a refresh token.
+      authenticated: false
+    headers:
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json
+    bodyParameters:
+      refreshToken:
+        name: refreshToken
+        description: The refresh token to generate a new authentication token.
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: >
+          {
+            "token": "eyXXX.eyXXX"
+          }
+      - status: 401
+        description: Invalid Refresh Token
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 401
+        description: Missing API Key
+        content: '{"error":"UnexpectedError","message":"An unexpected error occurred. Please contact support if this problem persists."}'
