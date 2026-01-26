@@ -926,3 +926,65 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+  - httpMethods: [ "POST" ]
+    uri: v8/postStatistics
+    metadata:
+      title: Post Statistics
+      description: Submit ride statistics for a specific bike.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      bikeId:
+        name: bikeId
+        description: The ID of the bike for which to submit statistics.
+        type: string
+        required: true
+      timestamp:
+        name: timestamp
+        description: The timestamp of the statistics in seconds since epoch.
+        type: integer
+        required: true
+      distance:
+        name: distance
+        description: The distance covered during the ride in meters.
+        type: integer
+        required: true
+      rideTime:
+        name: rideTime
+        description: The ride time in seconds.
+        type: integer
+        required: true
+      batteryLevel:
+        name: batteryLevel
+        description: The battery level percentage at the end of the ride.
+        type: integer
+        required: true
+      averageSpeed:
+        name: averageSpeed
+        description: The average speed during the ride in km/h.
+        type: integer
+        required: true
+      maxSpeed:
+        name: maxSpeed
+        description: The maximum speed reached during the ride in km/h.
+        type: integer
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": true}'
+      - status: 400
+        description: Validation Failed
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
+      - status: 400
+        description: Bike Not Found
+        content: '{"error":"BikeNotFoundException","message":"Bike not found"}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
