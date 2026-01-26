@@ -833,3 +833,35 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+  - httpMethods: [ "POST" ]
+    uri: v8/updateCustomerOnBike
+    metadata:
+      title: Update Customer on Bike
+      description: Update the customer associated with a bike, specifying their role.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      bikeId:
+        name: bikeId
+        description: The ID of the bike to update.
+        type: string
+        required: true
+      customerId:
+        name: customerId
+        description: The ID of the customer to associate with the bike.
+        type: string
+        required: true
+      role:
+        name: role
+        description: The role of the customer (owner or guest).
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: ''
+      - status: 204
+        description: No Content
