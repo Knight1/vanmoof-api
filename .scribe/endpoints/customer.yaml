@@ -551,7 +551,7 @@ endpoints:
   - httpMethods: [ "POST" ]
     uri: v8/privacyPolicyAccepted
     metadata:
-      title: Privacy Policy Accepted
+      title: Accept Privacy Policy
       description: Mark the privacy policy as accepted for the authenticated customer.
       authenticated: true
     headers:
