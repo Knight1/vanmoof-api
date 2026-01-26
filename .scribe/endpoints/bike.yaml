@@ -862,7 +862,7 @@ endpoints:
     responses:
       - status: 200
         description: Success
-        content: ''
+        content: '{"result": true}'
       - status: 204
         description: No Content
       - status: 400
@@ -907,7 +907,7 @@ endpoints:
     responses:
       - status: 200
         description: Success
-        content: ''
+        content: '{"result": true}'
       - status: 400
         description: Validation Failed
         content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
