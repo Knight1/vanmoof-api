@@ -560,7 +560,7 @@ endpoints:
     uri: v8/registerBikeToCurrentUser
     metadata:
       title: Register Bike To Current User
-      description: Register a bike to the currently authenticated user using the frame number and verification code.
+      description: "Register a bike to the currently authenticated user using the frame number and verification code. QR Code Content: https://my.vanmoof.com/proof-of-ownership?bike_id={framenumber}&validation={validationCode}"
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
@@ -575,7 +575,7 @@ endpoints:
       verification:
         name: verification
         description: The verification code for the bike.
-        type: string
+        type: integer
         required: true
       bikename:
         name: bikename
