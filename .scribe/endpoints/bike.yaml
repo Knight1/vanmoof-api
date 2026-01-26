@@ -755,3 +755,49 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+  - httpMethods: [ "POST" ]
+    uri: v8/reportFound
+    metadata:
+      title: Report Found
+      description: Report a bike as found and optionally disable tracking.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      bikeId:
+        name: bikeId
+        description: The ID of the bike to report as found.
+        type: integer
+        required: true
+      disableTracking:
+        name: disableTracking
+        description: Whether to disable tracking for the bike.
+        type: boolean
+        required: false
+    responses:
+      - status: 200
+        description: Success
+        content: '{"result": true}'
+      - status: 400
+        description: Validation Failed
+        content: >
+          {
+              "error": "ValidationException",
+              "message": "Validation failed",
+              "violations": {
+                  "bikeId": [
+                      "You are not registered as customer of this bike."
+                  ]
+              }
+          }
+      - status: 400
+        description: Bike Not Stolen
+        content: '{"error":"BikeNotStolenException","message":"Bike not stolen"}'
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
