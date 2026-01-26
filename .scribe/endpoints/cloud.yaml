@@ -9,6 +9,7 @@ endpoints:
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Host: subscription.production.vanmoof.cloud
     queryParameters:
       status:
         name: status
@@ -27,6 +28,7 @@ endpoints:
       authenticated: true
     headers:
       Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Host: notification.production.vanmoof.cloud
     responses:
       - status: 200
         description: Success
@@ -58,3 +60,44 @@ endpoints:
                       enabled: true
                     not_locked:
                       enabled: true
+- httpMethods: [ "GET" ]
+  uri: external/riders/{uuid}/invitations
+  metadata:
+    title: Get Rider Invitations
+    description: Retrieve invitations for a specific rider. USE https://vehicleregistry.production.vanmoof.cloud
+    authenticated: true
+  headers:
+    Authorization: Bearer {YOUR_AUTH_TOKEN}
+    Host: vehicleregistry.production.vanmoof.cloud
+  responses:
+    - status: 200
+      description: Success
+      content: []
+- httpMethods: [ "GET" ]
+  uri: external/invitations
+  metadata:
+    title: Get External Invitations
+    description: Retrieve all external invitations. USE https://vehicleregistry.production.vanmoof.cloud
+    authenticated: true
+  headers:
+    Authorization: Bearer {YOUR_AUTH_TOKEN}
+    Host: vehicleregistry.production.vanmoof.cloud
+  responses:
+    - status: 200
+      description: Success
+      content: []
+- httpMethods: [ "GET" ]
+  uri: external/riders/{uuid}/vehicles
+  metadata:
+    title: Get Rider Vehicles
+    description: Retrieve vehicles associated with a specific rider. USE https://vehicleregistry.production.vanmoof.cloud
+    authenticated: true
+  headers:
+    Authorization: Bearer {YOUR_AUTH_TOKEN}
+    Host: vehicleregistry.production.vanmoof.cloud
+  responses:
+    - status: 200
+      description: Success
+      content:
+        rider_id: "{uuid}"
+        vehicle_access: []
