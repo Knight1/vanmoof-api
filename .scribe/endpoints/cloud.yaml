@@ -1,0 +1,60 @@
+name: Cloud
+description: Endpoints for the Cloud.
+endpoints:
+- httpMethods: [ "GET" ]
+    uri: subscriptions
+    metadata:
+      title: Get Active Subscriptions
+      description: Retrieve a list of active subscriptions. USE https://subscription.production.vanmoof.cloud
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+    queryParameters:
+      status:
+        name: status
+        description: The status of the subscriptions to filter by (ACTIVE).
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success (No Subscriptions)
+        content: []
+- httpMethods: [ "GET" ]
+    uri: preferences
+    metadata:
+      title: Get Notification Preferences
+      description: Retrieve notification preferences for the user. USE https://notification.production.vanmoof.cloud
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+    responses:
+      - status: 200
+        description: Success
+        content:
+          languages:
+            - en-US
+          channels:
+            push:
+              vehicles:
+                {FrameNumber}:
+                  notifications:
+                    alarm_state/1:
+                      enabled: false
+                    alarm_state/2:
+                      enabled: true
+                    alarm_state/3:
+                      enabled: false
+                    battery_charge/custom:
+                      enabled: false
+                      preferences:
+                        soc: 25
+                    battery_charge/empty:
+                      enabled: true
+                    battery_charge/full:
+                      enabled: true
+                    battery_charge/low:
+                      enabled: true
+                    location_update:
+                      enabled: true
+                    not_locked:
+                      enabled: true
