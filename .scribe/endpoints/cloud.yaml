@@ -101,3 +101,17 @@ endpoints:
       content:
         rider_id: "{uuid}"
         vehicle_access: []
+- httpMethods: [ "GET" ]
+  uri: v1/rider/bikes
+  metadata:
+    title: Bike Tracking
+    description: Bike Tracking. USE https://biketracking.production.vanmoof.cloud
+    authenticated: true
+  headers:
+    Authorization: Bearer {YOUR_AUTH_TOKEN}
+    Host: biketracking.production.vanmoof.cloud
+  responses:
+    - status: 200
+      description: Success
+      content:
+        items: []
