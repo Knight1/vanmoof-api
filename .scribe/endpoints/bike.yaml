@@ -520,6 +520,9 @@ endpoints:
       - status: 422
         description: Validation Failed
         content: '{"error":"ValidationException","message":"Validation failed","violations":{"guid":["The guid field is required."]}}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
   - httpMethods: [ "POST" ]
     uri: v8/removeCustomerBikeSharingForBike
     metadata:
@@ -549,6 +552,10 @@ endpoints:
       - status: 422
         description: Validation Failed
         content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+        
   - httpMethods: [ "POST" ]
     uri: v8/registerBikeToCurrentUser
     metadata:
@@ -583,6 +590,23 @@ endpoints:
             "error": "BikeRegisterToCurrentCustomerException",
             "message": "This frame number can’t be registered."
           }
+      - status: 400
+        description: Invalid Verification Code
+        content: >
+          {
+            "error": "InvalidVerificationCodeException",
+            "message": "An invalid verification code is provided to register bike with framenumber / frameserial: {FrameNumber} verification code : {VerificationCode}"
+          }
+      - status: 400
+        description: No Bike Found During Registration
+        content: >
+          {
+            "error": "BikeNotFoundException",
+            "message": "No bike found during registration"
+          }
       - status: 401
         description: Unauthorized
         content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
