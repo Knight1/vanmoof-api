@@ -849,14 +849,14 @@ endpoints:
         description: The ID of the bike to update.
         type: string
         required: true
-      customerId:
-        name: customerId
-        description: The ID of the customer to associate with the bike.
+      email:
+        name: email
+        description: The email of the customer to associate with the bike.
         type: string
         required: true
       role:
         name: role
-        description: The role of the customer (owner or guest).
+        description: The role of the customer (guest).
         type: string
         required: true
     responses:
@@ -865,3 +865,21 @@ endpoints:
         content: ''
       - status: 204
         description: No Content
+      - status: 400
+        description: Validation Failed
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
+      - status: 400
+        description: Validation Failed (tried owner role)
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["You are not registered as customer of this bike."],"role":["This is not a regular customer role."]}}'
+      - status: 400
+        description: Customer Not Found
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"email":["There is no customer with this email."]}}'
+      - status: 400
+        description: Bike Not Found
+        content: '{"error":"BikeNotFoundException","message":"Bike not found"}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
