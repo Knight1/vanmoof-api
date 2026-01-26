@@ -883,3 +883,46 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+  - httpMethods: [ "POST" ]
+    uri: v8/removeCustomerFromBike
+    metadata:
+      title: Remove Customer from Bike
+      description: Remove a customer from a bike using the bike ID and customer email.
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Content-Type: application/json; charset=utf-8
+    bodyParameters:
+      bikeId:
+        name: bikeId
+        description: The ID of the bike from which to remove the customer.
+        type: string
+        required: true
+      email:
+        name: email
+        description: The email of the customer to remove from the bike.
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: ''
+      - status: 400
+        description: Validation Failed
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
+      - status: 400
+        description: Validation Failed (tried owner role)
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["You are not registered as customer of this bike."],"role":["This is not a regular customer role."]}}'
+      - status: 400
+        description: Customer Not Found
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"email":["There is no customer with this email."]}}'
+      - status: 400
+        description: Bike Not Found
+        content: '{"error":"BikeNotFoundException","message":"Bike not found"}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 422
+        description: Unprocessable Entity
+        content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
