@@ -115,3 +115,48 @@ endpoints:
         description: Success
         content:
           items: []
+  - httpMethods: [ "PATCH" ]
+    uri: preferences
+    metadata:
+      title: Update Notification Preferences
+      description: Update the notification preferences for the user. USE https://notification.production.vanmoof.cloud
+      authenticated: true
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Content-Type: application/json; charset=utf-8
+      Host: notification.production.vanmoof.cloud
+    requestBody:
+      content:
+        languages:
+          - en-US
+    responses:
+      - status: 200
+        description: Success
+        content:
+          languages:
+            - en-US
+          channels:
+            push:
+              vehicles:
+                FrameNumber:
+                  notifications:
+                    alarm_state/1:
+                      enabled: false
+                    alarm_state/2:
+                      enabled: true
+                    alarm_state/3:
+                      enabled: false
+                    battery_charge/custom:
+                      enabled: false
+                      preferences:
+                        soc: 25
+                    battery_charge/empty:
+                      enabled: true
+                    battery_charge/full:
+                      enabled: true
+                    battery_charge/low:
+                      enabled: true
+                    location_update:
+                      enabled: true
+                    not_locked:
+                      enabled: true
