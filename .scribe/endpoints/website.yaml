@@ -1,5 +1,5 @@
 name: Website
-description: Endpoints for SA5+ firmwares 
+description: Endpoints you interact with via the VanMoof website
 endpoints:
 - httpMethods: [ "GET" ]
   uri: findmybike/coords/{bike UUIDv4}
