@@ -40,3 +40,13 @@ curl --location --request POST 'https://89.41.170.17/v8/createCustomer' \
 {"error":"ValidationException","message":"Validation failed","violations":{"name":["The name field is required."],"email":["The email field is required."],"country":["The country field is required."],"password":["The password field is required."],"confirmationUrl":["The confirmationUrl field is required."]}}
 ```
 
+### Shodan / censys
+
+Search for: "Vanmoof API"
+
+### crt.sh
+
+https://crt.sh/?q=vanmoof.cloud
+https://crt.sh/?q=vanmoof-api.com
+https://crt.sh/?q=vanmoof.com
+
