@@ -195,4 +195,4 @@ endpoints:
       - status: 201
         description: Created
         content:
-          id: "{CHANNEL_ID}""
+          id: "{CHANNEL_ID}"
