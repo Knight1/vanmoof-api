@@ -5,7 +5,7 @@ endpoints:
   uri: findmybike/coords/{bike UUIDv4}
   metadata:
     title: Get Bike Coordinates
-    description: Retrieve the latest known coordinates of a bike by its UUIDv4. This endpoint does not require authentication nor is it disabled after the bike is found.
+    description: Retrieve the latest known coordinates of a bike by its UUIDv4. This endpoint does not require authentication nor is it disabled after the bike is found. USE https://my.vanmoof.com
     authenticated: false
   responses:
     - status: 200
