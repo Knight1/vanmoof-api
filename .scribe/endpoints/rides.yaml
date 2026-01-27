@@ -26,7 +26,7 @@ endpoints:
       Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
       Authorization: Bearer {YOUR_AUTH_TOKEN}
       Host: tenjin.vanmoof.com
-      Rider-Etag: {ETAG}
+      Rider-Etag: "{ETAG}"
     responses:
       - status: 200
         description: Success
