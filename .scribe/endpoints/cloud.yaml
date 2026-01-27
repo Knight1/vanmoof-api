@@ -177,3 +177,22 @@ endpoints:
     responses:
       - status: 204
         description: No Content
+  - httpMethods: [ "POST" ]
+    uri: channels
+    metadata:
+      title: Create Notification Channel
+      description: Create a new notification channel for the user. USE https://notification.production.vanmoof.cloud
+      authenticated: true
+    headers:
+      Authorization: Bearer {APPLICATION_JWT_TOKEN}
+      Content-Type: application/json; charset=utf-8
+      Host: notification.production.vanmoof.cloud
+    requestBody:
+      content:
+        address: "{DEVICE_ADDRESS}"
+        channel: "PUSH"
+    responses:
+      - status: 201
+        description: Created
+        content:
+          id: "{CHANNEL_ID}""
