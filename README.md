@@ -28,3 +28,15 @@ curl --location --request POST 'https://api-staging.vanmoof-api.com/v8/createCus
 }
 ```
 
+### IP Addresses  
+```
+89.41.170.17
+77.72.144.185
+```
+```
+curl --location --request POST 'https://89.41.170.17/v8/createCustomer' \
+--header 'Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819' \
+--data ''
+{"error":"ValidationException","message":"Validation failed","violations":{"name":["The name field is required."],"email":["The email field is required."],"country":["The country field is required."],"password":["The password field is required."],"confirmationUrl":["The confirmationUrl field is required."]}}
+```
+
