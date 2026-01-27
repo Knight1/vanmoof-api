@@ -1,0 +1,34 @@
+name: Website
+description: Endpoints for SA5+ firmwares 
+endpoints:
+- httpMethods: [ "GET" ]
+  uri: findmybike/coords/{bike UUIDv4}
+  metadata:
+    title: Get Bike Coordinates
+    description: Retrieve the latest known coordinates of a bike by its UUIDv4. This endpoint does not require authentication nor is it disabled after the bike is found.
+    authenticated: false
+  responses:
+    - status: 200
+      description: Success
+      content:
+        coordinates:
+          - lat: -10.47
+            lon: 105.61
+            acc: 0
+            datetime:
+              user:
+                date: "{DD-MM-YYYY}"
+                time: "13:37"
+              bike:
+                date: "{DD-MM-YYYY}"
+                time: "13:37"
+            timezone:
+              user: "Europe/Amsterdam"
+              bike: "Europe/Berlin"
+            firstTime:
+              user: "13:37"
+              bike: "13:37"
+            measurements: 1
+            type: "ublox"
+            measured_by: []
+        timezone: 2
