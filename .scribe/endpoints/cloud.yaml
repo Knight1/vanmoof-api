@@ -160,3 +160,20 @@ endpoints:
                       enabled: true
                     not_locked:
                       enabled: true
+  - httpMethods: [ "DELETE" ]
+    uri: channels
+    metadata:
+      title: Remove Notification Channel
+      description: Remove a notification channel for the user. USE https://notification.production.vanmoof.cloud
+      authenticated: true
+    headers:
+      Authorization: Bearer {APPLICATION_JWT_TOKEN}
+      Content-Type: application/json; charset=utf-8
+      Host: notification.production.vanmoof.cloud
+    requestBody:
+      content:
+        address: "{DEVICE_ADDRESS}"
+        channel: "PUSH"
+    responses:
+      - status: 204
+        description: No Content
