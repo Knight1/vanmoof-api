@@ -16,3 +16,24 @@ endpoints:
       - status: 401
         description: Unauthorized - Also returned if the rider ID is invalid
         content: '{"error":"Unauthorized"}'
+  - httpMethods: [ "GET" ]
+    uri: api/v1/cities
+    metadata:
+      title: Get Cities
+      description: Retrieve a list of cities. USE https://tenjin.vanmoof.com
+      authenticated: true
+    headers:
+      Api-Key: fcb38d47-f14b-30cf-843b-26283f6a5819
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Host: tenjin.vanmoof.com
+      Rider-Etag: {ETAG}
+    responses:
+      - status: 200
+        description: Success
+        content:
+          - country: DE
+            code: DE FRA
+            name: Frankfurt (Frankfurt am Main)
+            location:
+              lat: 50.1136
+              long: 8.6797
