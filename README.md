@@ -2,12 +2,13 @@
 
 ## API Endpoints
 
-- ```https://my.vanmoof.com/api/v8``` Old API Endpoint
+- ```https://my.vanmoof.com/api/v8``` *-> Old API Endpoint but still usable*
 - ```https://api.vanmoof-api.com```
 - ```https://tenjin.vanmoof.com/api/v1```
 - ```https://m2m.vanmoof.com```
-- ```https://bikecomm.vanmoof.com```
-- ```https://notification.production.vanmoof.cloud``` Below all used for SA5 and later
+- ```https://bikecomm.vanmoof.com```  
+*The Following APIs are used for SA5 and later bikes*
+- ```https://notification.production.vanmoof.cloud``` 
 - ```https://vehicleregistry.production.vanmoof.cloud```
 - ```https://bikeapi.production.vanmoof.cloud```
 - ```https://fima.production.vanmoof.cloud/v1```
