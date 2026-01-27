@@ -46,10 +46,9 @@ Search for: "Vanmoof API"
 
 ### crt.sh
 
-https://crt.sh/?q=vanmoof.cloud
-https://crt.sh/?q=vanmoof-api.com
-https://crt.sh/?q=vanmoof.com
-
+[https://crt.sh/?q=vanmoof.cloud]()  
+[https://crt.sh/?q=vanmoof-api.com]()  
+[https://crt.sh/?q=vanmoof.com]()
 
 ### blue.team
 
