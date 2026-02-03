@@ -1034,7 +1034,7 @@ endpoints:
     uri: bikes/{frameNumber}/create_certificate
     metadata:
       title: Create Certificate
-      description: Create a certificate for a bike using its frame number. This endpoint uses the Bike API (bikeapi.production.vanmoof.cloud) instead of the main API.
+      description: Create a certificate for a bike using its Bike ID. This endpoint uses the Bike API (bikeapi.production.vanmoof.cloud) instead of the main API. Ratelimited at 100 requests per 15 seconds.
       authenticated: true
       baseUrl: https://bikeapi.production.vanmoof.cloud
     headers:
@@ -1062,11 +1062,11 @@ endpoints:
             "certificate": "{Base64 Encoded Certificate}"
           }
       - status: 400
-        description: Validation Failed
-        content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
+        description: Missing Body
+        content: '{"err": "invalid body: EOF"}'
       - status: 400
-        description: Bike Not Found
-        content: '{"error":"BikeNotFoundException","message":"Bike not found"}'
+        description: Bike ID invalid
+        content: '{"err": "bike_id format invalid"}'
       - status: 400
         description: Invalid Public Key
         content: '{"err":"invalid ed25519 public key"}'
@@ -1076,3 +1076,6 @@ endpoints:
       - status: 401
         description: Invalid Credentials
         content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
+      - status: 403
+        description: User not allowed to create certificate for this bike
+        content: '{"err": "forbidden"}'
