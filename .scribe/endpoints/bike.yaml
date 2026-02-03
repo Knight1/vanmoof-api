@@ -1028,3 +1028,51 @@ endpoints:
       - status: 422
         description: Unprocessable Entity
         content: '{"error":"Please provide your ''Api-Key'' header. You can obtain an API key from VanMoof. For more information see the documentation: http:\/\/api.vanmoof-api.com\/apidoc\/my\/pretty","message":"Please provide an API key"}'
+
+  # Bike API (bikeapi.production.vanmoof.cloud)
+  - httpMethods: [ "POST" ]
+    uri: bikes/{frameNumber}/create_certificate
+    metadata:
+      title: Create Certificate
+      description: Create a certificate for a bike using its frame number. This endpoint uses the Bike API (bikeapi.production.vanmoof.cloud) instead of the main API.
+      authenticated: true
+      baseUrl: https://bikeapi.production.vanmoof.cloud
+    headers:
+      Authorization: Bearer {YOUR_AUTH_TOKEN}
+      Content-Type: application/json; charset=utf-8
+    urlParameters:
+      frameNumber:
+        name: frameNumber
+        description: The frame number of the bike.
+        type: string
+        required: true
+    bodyParameters:
+      public_key:
+        name: public_key
+        description: The public key for the certificate (base64 encoded).
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content: >
+          {
+            "created_at": "{ISO8601 Date}",
+            "expiry": "{ISO8601 Date}",
+            "certificate": "{Base64 Encoded Certificate}"
+          }
+      - status: 400
+        description: Validation Failed
+        content: '{"error":"ValidationException","message":"Validation failed","violations":{"bikeId":["The bikeId field is required."]}}'
+      - status: 400
+        description: Bike Not Found
+        content: '{"error":"BikeNotFoundException","message":"Bike not found"}'
+      - status: 400
+        description: Invalid Public Key
+        content: '{"err":"invalid ed25519 public key"}'
+      - status: 400
+        description: Base64 Decoding Error
+        content: '{"err":"invalid body: illegal base64 data at input byte 0"}'
+      - status: 401
+        description: Invalid Credentials
+        content: '{"error":"AuthenticationException","message":"Invalid Credentials"}'
