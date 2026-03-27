@@ -83,13 +83,13 @@ endpoints:
           vehicle_access:
             - rider_id: "{uuid}"
               rider_name: "Rider Name"
-              rider_email: "rider@example.com"
+              rider_email: "rider@vanmoof.com"
               owner_id: "{owner_uuid}"
               owner_name: "Owner Name"
-              owner_email: "owner@example.com"
+              owner_email: "owner@vanmoof.com"
               role: "GUEST"
-              expires_at: "2027-03-11T06:02:04.54739Z"
-              starts_at: "2026-03-11T06:02:04.547415Z"
+              expires_at: "2027-01-01T01:00:00.000000Z"
+              starts_at: "2026-01-01T01:00:00.000000Z"
   - httpMethods: [ "GET" ]
     uri: external/riders/{uuid}/invitations
     metadata:
