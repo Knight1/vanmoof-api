@@ -145,6 +145,29 @@ endpoints:
         description: Success
         content:
           items: []
+  - httpMethods: [ "GET" ]
+    uri: v2/states/{vehicle_id}
+    metadata:
+      title: Get Bike Tracking State
+      description: Retrieve the tracking state of a specific vehicle. USE https://biketracking.production.vanmoof.cloud
+      authenticated: true
+    headers:
+      Authorization: Bearer {APPLICATION_JWT_TOKEN}
+      Host: biketracking.production.vanmoof.cloud
+    urlParameters:
+      vehicle_id:
+        name: vehicle_id
+        description: The frame number of the vehicle.
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content:
+          id: "{uuid}"
+          missing: "NOT_MISSING"
+          tracking: "ENABLED"
+          created_at: "2026-01-01T10:00:00.000000Z"
   - httpMethods: [ "PATCH" ]
     uri: preferences
     metadata:
