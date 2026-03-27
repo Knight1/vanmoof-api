@@ -4,8 +4,8 @@ endpoints:
   - httpMethods: [ "GET" ]
     uri: subscriptions
     metadata:
-      title: Get Active Subscriptions
-      description: Retrieve a list of active subscriptions. USE https://subscription.production.vanmoof.cloud
+      title: Get Subscriptions
+      description: Retrieve a list of subscriptions. USE https://subscription.production.vanmoof.cloud
       authenticated: true
     headers:
       Authorization: Bearer {APPLICATION_JWT_TOKEN}
@@ -13,13 +13,32 @@ endpoints:
     queryParameters:
       status:
         name: status
-        description: The status of the subscriptions to filter by (ACTIVE).
+        description: Filter by subscription status (e.g. ACTIVE, EXPIRED).
         type: string
-        required: true
+        required: false
     responses:
       - status: 200
         description: Success (No Subscriptions)
         content: []
+      - status: 200
+        description: Success
+        content:
+          - id: "{uuid}"
+            vehicle_id: "{vehicle_id}"
+            sku: "BETA-TRIAL"
+            status: "EXPIRED"
+            product: "FEATURE_SUBSCRIPTION"
+            billing_cycle: "NONE"
+            is_recurring: false
+            created_at: "2026-01-01T01:00:00.000000Z"
+            updated_at: "2026-01-01T01:00:00.000000Z"
+            expired_at: "2026-01-01T01:00:00.000000Z"
+            canceled_at: null
+            next_billing_at: null
+            trial_until: null
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "GET" ]
     uri: preferences
     metadata:
