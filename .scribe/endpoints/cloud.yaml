@@ -273,6 +273,9 @@ endpoints:
     responses:
       - status: 204
         description: No Content
+      - status: 400
+        description: Bad Request
+        content: '{"error_code":1000,"error_message":"could not decode request"}'
       - status: 401
         description: Unauthorized
         content: "Unauthorized"
@@ -295,6 +298,9 @@ endpoints:
         description: Created
         content:
           id: "{CHANNEL_ID}"
+      - status: 400
+        description: Bad Request
+        content: '{"error_code":1000,"error_message":"could not decode request"}'
       - status: 401
         description: Unauthorized
         content: "Unauthorized"
