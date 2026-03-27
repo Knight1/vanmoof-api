@@ -61,6 +61,36 @@ endpoints:
                     not_locked:
                       enabled: true
   - httpMethods: [ "GET" ]
+    uri: external/vehicles/{vehicle_id}/accesses
+    metadata:
+      title: Get Vehicle Accesses
+      description: Retrieve access list for a specific vehicle, showing owners and guests. USE https://vehicleregistry.production.vanmoof.cloud
+      authenticated: true
+    headers:
+      Authorization: Bearer {APPLICATION_JWT_TOKEN}
+      Host: vehicleregistry.production.vanmoof.cloud
+    urlParameters:
+      vehicle_id:
+        name: vehicle_id
+        description: The frame number of the vehicle.
+        type: string
+        required: true
+    responses:
+      - status: 200
+        description: Success
+        content:
+          vehicle_id: "{vehicle_id}"
+          vehicle_access:
+            - rider_id: "{uuid}"
+              rider_name: "Rider Name"
+              rider_email: "rider@example.com"
+              owner_id: "{owner_uuid}"
+              owner_name: "Owner Name"
+              owner_email: "owner@example.com"
+              role: "GUEST"
+              expires_at: "2027-03-11T06:02:04.54739Z"
+              starts_at: "2026-03-11T06:02:04.547415Z"
+  - httpMethods: [ "GET" ]
     uri: external/riders/{uuid}/invitations
     metadata:
       title: Get Rider Invitations
