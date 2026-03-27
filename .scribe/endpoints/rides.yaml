@@ -37,3 +37,6 @@ endpoints:
             location:
               lat: 50.1136
               long: 8.6797
+      - status: 401
+        description: Unauthorized
+        content: '{"error":"Unauthorized"}'
