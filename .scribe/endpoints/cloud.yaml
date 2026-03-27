@@ -79,6 +79,9 @@ endpoints:
                       enabled: true
                     not_locked:
                       enabled: true
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "GET" ]
     uri: external/vehicles/{vehicle_id}/accesses
     metadata:
@@ -109,6 +112,9 @@ endpoints:
               role: "GUEST"
               expires_at: "2027-01-01T01:00:00.000000Z"
               starts_at: "2026-01-01T01:00:00.000000Z"
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "GET" ]
     uri: external/riders/{uuid}/invitations
     metadata:
@@ -135,6 +141,9 @@ endpoints:
       - status: 200
         description: Success
         content: []
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "GET" ]
     uri: external/riders/{uuid}/vehicles
     metadata:
@@ -150,6 +159,9 @@ endpoints:
         content:
           rider_id: "{uuid}"
           vehicle_access: []
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "GET" ]
     uri: v1/rider/bikes
     metadata:
@@ -164,6 +176,9 @@ endpoints:
         description: Success
         content:
           items: []
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "GET" ]
     uri: v2/states/{vehicle_id}
     metadata:
@@ -187,6 +202,9 @@ endpoints:
           missing: "NOT_MISSING"
           tracking: "ENABLED"
           created_at: "2026-01-01T10:00:00.000000Z"
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "PATCH" ]
     uri: preferences
     metadata:
@@ -232,6 +250,9 @@ endpoints:
                       enabled: true
                     not_locked:
                       enabled: true
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "DELETE" ]
     uri: channels
     metadata:
@@ -249,6 +270,9 @@ endpoints:
     responses:
       - status: 204
         description: No Content
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
   - httpMethods: [ "POST" ]
     uri: channels
     metadata:
@@ -268,3 +292,6 @@ endpoints:
         description: Created
         content:
           id: "{CHANNEL_ID}"
+      - status: 401
+        description: Unauthorized
+        content: "Unauthorized"
