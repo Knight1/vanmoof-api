@@ -250,6 +250,9 @@ endpoints:
                       enabled: true
                     not_locked:
                       enabled: true
+      - status: 400
+        description: Bad Request
+        content: '{"error_code":1000,"error_message":"could not decode request"}'
       - status: 401
         description: Unauthorized
         content: "Unauthorized"
