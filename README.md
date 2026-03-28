@@ -55,6 +55,8 @@ Search for: "Vanmoof API"
 
 ### blue.team
 
-[blue.team](https://blue.team) uses the same self-signed Certificate for all Customers
+[blue.team](https://blue.team) uses the same self-signed Certificate for all Customers  
 
+```
 censys Search: "services.tls.certificates.leaf_data.fingerprint: 32fb747d5588a32ac8e2ba2c8e92af2009a38ffa3aafa59bdb39e8e4b8c2ddd1 or services.tls.certificates.chain.fingerprint: 32fb747d5588a32ac8e2ba2c8e92af2009a38ffa3aafa59bdb39e8e4b8c2ddd1"
+```
